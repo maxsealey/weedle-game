@@ -4,7 +4,9 @@ import '../../App.css'
 export default class Container extends Component {
   render() {
     return (
-      <div></div>
+      <div className="container card" style={{height:'85vh'}}>
+
+      </div>
     )
   }
 }
