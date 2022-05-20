@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Grid extends Component {
+export default class Dropdown extends Component {
   render() {
     return (
       <div></div>
