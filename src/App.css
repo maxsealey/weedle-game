@@ -5,15 +5,11 @@ html, body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: steelblue !important;
   }
 
   .App {
       height:100vh;
       width:100%;
       padding-top: 5rem;
-  }
-
-  nav .navbar {
-    background-color: none !important;
+      background-color: #d7e2e9 !important;
   }
