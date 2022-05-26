@@ -30,3 +30,15 @@ Stay tuned!
 Updates:
 ------------------------------------------------
 May 19th, 2022: Created project, file directories, layout components, other components, imported libraries and frameworks
+
+May 25th, 2022: Added favicons
+Updated trait list, may not be in order:
+
+- Name (no hint: the answer)
+- Pokedex # (hint: higher or lower)
+- Generation (hint: +/- 1) (may exclude if it makes things too easy)
+- Primary Type (no hint)
+- Secondary Type (hint: does it have one?)
+- Evolutionary stage (no hint)
+- Egg Group (hint: is it related (ex. Water 1/Water 2))
+
