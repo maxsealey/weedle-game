@@ -45,4 +45,4 @@ Updated trait list, may not be in order:
 May 27-28th:
 Redesigned interface, modeled after Weddle. Added drop down, api data retrieval, footer, fa icon buttons
 
-<a href='https://postimg.cc/06VDYfsk' target='_blank'><img src='https://i.postimg.cc/06VDYfsk/Screen-Shot-2022-05-28-at-1-20-25-AM.png' border='0' alt='Screen-Shot-2022-05-28-at-1-20-25-AM'/></a>
+[![Screen-Shot-2022-05-28-at-1-20-25-AM.png](https://i.postimg.cc/gJWsPStZ/Screen-Shot-2022-05-28-at-1-20-25-AM.png)](https://postimg.cc/06VDYfsk)
