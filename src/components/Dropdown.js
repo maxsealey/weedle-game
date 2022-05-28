@@ -24,19 +24,19 @@ const pokemans = [
     eggGroup:["monster","grass"]
   },
   {
-    label:"Ivysaur",
-    dexNum:2,
+    label:"Charmander",
+    dexNum:4,
     gen:1,
-    type:["grass","poison"],
-    evoStage:2,
-    eggGroup:["monster","grass"]
+    type:["fire"],
+    evoStage:1,
+    eggGroup:["monster","dragon"]
   },
   {
-    label:"Venusaur",
-    dexNum:3,
+    label:"Squirtle",
+    dexNum:7,
     gen:1,
-    type:["grass","poison"],
-    evoStage:3,
-    eggGroup:["monster","grass"]
+    type:["water"],
+    evoStage:1,
+    eggGroup:["monster","water 1"]
   }
 ]
