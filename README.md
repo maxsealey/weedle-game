@@ -42,3 +42,7 @@ Updated trait list, may not be in order:
 - Evolutionary stage (no hint)
 - Egg Group (hint: is it related (ex. Water 1/Water 2))
 
+May 27-28th:
+Redesigned interface, modeled after Weddle. Added drop down, api data retrieval, footer, fa icon buttons
+
+![interface](https://postimg.cc/06VDYfsk)
