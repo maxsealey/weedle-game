@@ -9,18 +9,15 @@ export default class Header extends Component {
   
   render() {
     const navStyle = {height:'60px', display:'flex', justifyContent:'space-around', position:'absolute'}
-    //const linkStyle = {color:'black', textDecoration:'none',cursor:'pointer'}
-    const iconStyle={color:'black', marginRight:'20px', height:'30px',width:'30px'}
+    const iconStyle={color:'#646464', marginRight:'20px', height:'30px',width:'30px',cursor:'pointer'}
 
     return (
       <React.Fragment>
         <nav className='navbar navbar-expand-md fixed-top' style={navStyle}>
           <div style={{ margin:'auto', marginLeft:'20px' }}>
-            <FontAwesomeIcon icon={faCircleQuestion} style={iconStyle} />
-            <FontAwesomeIcon icon={faGear} style={iconStyle} />
-            <FontAwesomeIcon icon={faShare} style={iconStyle} />
-          </div>
-          <div>
+            <FontAwesomeIcon icon={faCircleQuestion} style={iconStyle} class="faicon" />
+            <FontAwesomeIcon icon={faGear} style={iconStyle} class="faicon" />
+            <FontAwesomeIcon icon={faShare} style={iconStyle} class="faicon" />
           </div>
         </nav>
       </React.Fragment>
