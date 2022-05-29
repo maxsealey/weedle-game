@@ -8,7 +8,7 @@ export default function Dropdown() {
       disablePortal
       id="pokemon-list"
       options={pokemans}
-      sx={{ width: 350 }}
+      sx={{ width: 400 }}
       renderInput={(params) => <TextField {...params} label="Choose a Pokemon"/>}
     />
   );
