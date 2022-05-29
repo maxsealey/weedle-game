@@ -35,14 +35,14 @@ May 25th, 2022: Added favicons
 Updated trait list, may not be in order:
 
 - Name (no hint: the answer)
-- Pokedex # (hint: higher or lower)
+- Pokedex # (hint: higher or lower, +/- 5)
 - Generation (hint: +/- 1) (may exclude if it makes things too easy)
-- Primary Type (no hint)
-- Secondary Type (hint: does it have one?)
-- Evolutionary stage (no hint)
-- Egg Group (hint: is it related (ex. Water 1/Water 2))
+- Primary Type
+- Secondary Type
+- Evolutionary stage
+- Egg Group
 
 May 27-28th:
 Redesigned interface, modeled after Weddle. Added drop down, api data retrieval, footer, fa icon buttons
 
-[![Screen-Shot-2022-05-28-at-1-20-25-AM.png](https://i.postimg.cc/gJWsPStZ/Screen-Shot-2022-05-28-at-1-20-25-AM.png)](https://postimg.cc/06VDYfsk)
+[![screenshot](https://i.postimg.cc/cHQt4TSj/Screen-Shot-2022-05-28-at-2-38-38-PM.png)](https://postimg.cc/dkVV52Dm)
