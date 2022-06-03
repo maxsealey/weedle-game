@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Dropdown from '../Dropdown'
+import Grid from '../Grid'
 import axios from 'axios'
 import '../../App.css'
 
@@ -37,7 +38,10 @@ export default class Dashboard extends Component {
             <h6 class="text-center" style={{fontFamily:'Allerta',color:'#3466af',fontWeight:'bold'}}>{this.state.guesses} out of 8 Guesses</h6>
           </div>
           <div className="row contentContain" style={contentStyle}>
-              <Dropdown/>
+            <Dropdown/>
+          </div>
+          <div className="row tableContain" style={contentStyle}>
+            <Grid/>
           </div>
         </div>
       </React.Fragment>
