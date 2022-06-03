@@ -48,4 +48,4 @@ Redesigned interface, modeled after Weddle. Added drop down, api data retrieval,
 June 2nd:
 Began work on table/grid, resizing based on viewport and data size biggest issue.
 
-![Screenshot](https://i.postimg.cc/bv1PJMpX/Screen-Shot-2022-06-02-at-8-12-02-PM.png)
+[![Screen-Shot-2022-06-02-at-8-12-02-PM.png](https://i.postimg.cc/bv1PJMpX/Screen-Shot-2022-06-02-at-8-12-02-PM.png)](https://postimg.cc/wtxZ4w1F)
