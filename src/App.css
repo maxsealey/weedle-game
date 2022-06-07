@@ -8,21 +8,95 @@ html, body {
     background-color: #d7e2e9 !important;
   }
 
-  .App {
-      height:100%;
-      width:100%;
-      padding-top: 5rem;
-      background-color: #d7e2e9 !important;
-  }
+.App {
+  height:100%;
+  width:100%;
+  padding-top: 5rem;
+  background-color: #d7e2e9 !important;
+}
 
-  .faicon:hover {
-    color:#878787 !important;
-  }
+.faicon:hover {
+  color:#878787 !important;
+} /*header*/
 
-  .faicon:active {
-    color:#000 !important;
-  }
+.faicon:active {
+  color:#000 !important;
+} /*header*/
 
-  a {
+/*
+FOOTER
+*/
+
+.footer a, p {
+  font-weight: bold;
+}
+
+.linkButton {
+  box-shadow:inset 0px 4px 7px 0px #29bbff;
+  background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  background-color:#2dabf9;
+  border-radius:8px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  text-shadow:0px 1px 0px #263666;
+  width:auto;
+  padding:3px;
+  margin-left: 2px;
+}
+
+.linkButton:hover {
+  background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  background-color:#0688fa;
+  color:white;
+}
+
+.linkButton:active {
+  position:relative;
+  top:1px;
+}
+
+.weddleButton {
+  -moz-box-shadow:inset 0px -3px 7px 0px #cf2727;
+  -webkit-box-shadow:inset 0px -3px 7px 0px #cf2727;
+  box-shadow:inset 0px -3px 7px 0px #cf2727;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ed9797), color-stop(1, #e82c2c));
+  background:-moz-linear-gradient(top, #ed9797 5%, #e82c2c 100%);
+  background:-webkit-linear-gradient(top, #ed9797 5%, #e82c2c 100%);
+  background:-o-linear-gradient(top, #ed9797 5%, #e82c2c 100%);
+  background:-ms-linear-gradient(top, #ed9797 5%, #e82c2c 100%);
+  background:linear-gradient(to bottom, #ed9797 5%, #e82c2c 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed9797', endColorstr='#e82c2c',GradientType=0);
+  background-color:#ed9797;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  border-radius:8px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  text-shadow:0px 1px 0px #c21820;
+}
+
+.weddleButton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e82c2c), color-stop(1, #ed9797));
+  background:-moz-linear-gradient(top, #e82c2c 5%, #ed9797 100%);
+  background:-webkit-linear-gradient(top, #e82c2c 5%, #ed9797 100%);
+  background:-o-linear-gradient(top, #e82c2c 5%, #ed9797 100%);
+  background:-ms-linear-gradient(top, #e82c2c 5%, #ed9797 100%);
+  background:linear-gradient(to bottom, #e82c2c 5%, #ed9797 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e82c2c', endColorstr='#ed9797',GradientType=0);
+  background-color:#e82c2c;
+}
+
+.weddleButton:active {
+  position:relative;
+  top:1px;
+}
+
+/*
+END FOOTER STYLING
+*/
+
+a {
     text-decoration: none !important;
-  }
+}/* universal cause no one needs that shit */
