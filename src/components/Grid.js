@@ -4,6 +4,7 @@ export default class Grid extends Component {
   constructor(props){
     super(props)
     this.state = {
+      guesses: this.props.guesses,
       categories : ['#','Name','Gen.','Primary','Secondary','Evo','Egg Group'],
       choice : {
         // will contain object created by Pokemon class
@@ -43,8 +44,8 @@ export default class Grid extends Component {
     ]
 
     return (
-      <table className="table table-striped" style={{width:'100%', marginLeft:'1em'}}>
-        <thead className='thead-light'>
+      <table className="table" style={{width:'100%', marginLeft:'0.5em'}}>
+        <thead className='thead-dark'>
           <tr>
             {
               this.state.categories ? (

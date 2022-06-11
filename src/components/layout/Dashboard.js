@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
             <Dropdown/>
           </div>
           <div className="row tableContain" style={contentStyle}>
-            <Grid key={guessCount} guessCount={this.state.guesses}/>
+            <Grid key={this.state.guesses} guessCount={this.state.guesses}/>
           </div>
         </div>
       </React.Fragment>
