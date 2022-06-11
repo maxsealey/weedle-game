@@ -11,13 +11,17 @@ export default class Grid extends Component {
     }
   }
   render() {
+    const textStyle = {
+      fontSize:'10px'
+    }
+
     return (
       <table className="table" style={{width:'100%', marginLeft:'1em'}}>
         <thead>
           <tr>
             {
               this.state.categories ? (
-                this.state.categories.map(cat => <th scope="col" className='text-center'>{cat}</th>)
+                this.state.categories.map(cat => <th scope="col" className='text-center' style={textStyle}>{cat}</th>)
               ) : <></>
             }
           </tr>
