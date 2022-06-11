@@ -9,9 +9,9 @@ export default class Dashboard extends Component {
     super(props)
 
     this.state = {
-        guesses:0,
         url: "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0",
-        pokemon: null // stores retrieved data
+        pokemon: null, // stores retrieved data,
+        guesses:0,
     }
   }
 
@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
             <Dropdown/>
           </div>
           <div className="row tableContain" style={contentStyle}>
-            <Grid/>
+            <Grid key={guessCount} guessCount={this.state.guesses}/>
           </div>
         </div>
       </React.Fragment>

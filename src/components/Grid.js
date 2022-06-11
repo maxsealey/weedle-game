@@ -15,9 +15,36 @@ export default class Grid extends Component {
       fontSize:'10px'
     }
 
+    const testPokemanGuesses  = [
+      {
+        label:"Bulbasaur",
+        dexNum:1,
+        gen:1,
+        type:["grass","poison"],
+        evoStage:1,
+        eggGroup:["monster","grass"]
+      },
+      {
+        label:"Charmander",
+        dexNum:4,
+        gen:1,
+        type:["fire"],
+        evoStage:1,
+        eggGroup:["monster","dragon"]
+      },
+      {
+        label:"Squirtle",
+        dexNum:7,
+        gen:1,
+        type:["water"],
+        evoStage:1,
+        eggGroup:["monster","water 1"]
+      }
+    ]
+
     return (
-      <table className="table" style={{width:'100%', marginLeft:'1em'}}>
-        <thead>
+      <table className="table table-striped" style={{width:'100%', marginLeft:'1em'}}>
+        <thead className='thead-light'>
           <tr>
             {
               this.state.categories ? (
@@ -27,10 +54,9 @@ export default class Grid extends Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
-          </tr>
-          <tr>
-          </tr>
+          {
+
+          }
         </tbody>
       </table>
     )
