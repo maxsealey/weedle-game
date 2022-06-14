@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import {faGear} from '@fortawesome/free-solid-svg-icons'
 import {faShare} from '@fortawesome/free-solid-svg-icons'
-import '../../App.css'
+import './header.scss'
+
+
 
 export default class Header extends Component {
   

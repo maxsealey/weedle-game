@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Dropdown from '../Dropdown'
 import Grid from '../Grid'
 import axios from 'axios'
-import '../../App.css'
+import './dashboard.scss'
 
 export default class Dashboard extends Component {
   constructor(props) {
