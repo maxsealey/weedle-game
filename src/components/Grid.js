@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../style/grid.scss'
 
 export default class Grid extends Component {
   constructor(props){
