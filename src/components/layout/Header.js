@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import {faGear} from '@fortawesome/free-solid-svg-icons'
 import {faShare} from '@fortawesome/free-solid-svg-icons'
-import './header.scss'
+import '../../style/layout/header.scss'
 
 
 
