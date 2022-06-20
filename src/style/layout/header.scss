@@ -1,7 +1,25 @@
-.faicon:hover {
-    color:#878787 !important;
-} /*header*/
+.faicon {
+    color:#646464;
+    margin-right:20px; 
+    height:30px;
+    width:30px;
+    cursor: pointer;
+    &:hover {
+        color:#878787 !important;
+    }
+    &:active {
+        color:#000 !important;
+    }
+}
 
-.faicon:active {
-    color:#000 !important;
-} /*header*/
+.icon-contain {
+    margin:auto;
+    margin-left:20px;
+}
+
+.navbar {
+    height:60px; 
+    display:flex; 
+    justify-content:space-around;
+    position:absolute;
+}

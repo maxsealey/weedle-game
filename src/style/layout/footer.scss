@@ -1,6 +1,14 @@
-footer a, p {
+footer a,p {
     font-weight: bold;
+    color:black; 
+    font-size:10px;
   }
+
+.footer {
+    width:100%;
+    position:absolute;
+    bottom:0;
+}
 
 .linkButton {
     box-shadow:inset 0px 4px 7px 0px #29bbff;

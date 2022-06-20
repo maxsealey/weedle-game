@@ -1,3 +1,4 @@
+@import './global.scss';
 html, body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
@@ -5,16 +6,16 @@ html, body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #d7e2e9 !important;
+    background-color: $bg-color !important;
   }
 
 .App {
   height:100%;
   width:100%;
   padding-top: 5rem;
-  background-color: #d7e2e9 !important;
+  background-color: $bg-color !important;
 }
 
-a {
+* {
     text-decoration: none !important;
 }/* universal cause no one needs that shit */
