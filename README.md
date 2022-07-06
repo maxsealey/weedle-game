@@ -49,3 +49,16 @@ Redesigned interface, modeled after Weddle. Added drop down, api data retrieval,
 
 June 2nd:
 Began work on table/grid, resizing based on viewport and data size biggest issue.
+
+<br/>
+June:
+Worked on implementing table for results, and made some cosmetic changes. Created components for settings and share windows
+
+[![Screen-Shot-2022-07-06-at-3-36-20-PM.png](https://i.postimg.cc/TP9c514f/Screen-Shot-2022-07-06-at-3-36-20-PM.png)](https://postimg.cc/8F7vqpG0)
+
+<br/>
+
+Goals for July:
+- Finish table styling, on dropdown change, display data to table.
+- Make sure API interaction works as intended
+- Try to create share and settings windows, display on click
