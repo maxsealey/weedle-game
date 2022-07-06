@@ -22,8 +22,6 @@ export default class Dashboard extends Component {
   } // asynchronously gets data from pokeapi
 
   render() {
-    this.state.names = this.state.pokemon.map(poke => poke.name)
-
     return (
       <React.Fragment>
         <div className="col">
@@ -37,10 +35,10 @@ export default class Dashboard extends Component {
             <h6 class="text-center guess-text">{this.state.guesses} out of 8 Guesses</h6>
           </div>
           <div className="row contentContain content">
-            <Dropdown key={names} names={this.state.names}/>
+            <Dropdown/>
           </div>
           <div className="row content">
-            <Grid key={this.state.guesses} guessCount={this.state.guesses}/>
+            <Grid/>
           </div>
         </div>
       </React.Fragment>

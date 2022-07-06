@@ -46,7 +46,7 @@ export default class Dropdown extends Component {
       <Autocomplete
         disablePortal
         id="pokemon-list"
-        options={this.state.names}
+        options={pokemans}
         sx={{ width: '40%', minWidth: 300, maxWidth: 400 }}
         renderInput={(params) => <TextField {...params} label="Choose a Pokemon"/>}
       />
