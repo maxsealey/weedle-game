@@ -11,6 +11,7 @@ export default class Dashboard extends Component {
     this.state = {
         url: "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0",
         pokemon: null, // stores retrieved data,
+        names:null,
         guesses:0,
     }
   }
@@ -36,8 +37,8 @@ export default class Dashboard extends Component {
           <div className="row contentContain content">
             <Dropdown/>
           </div>
-          <div className="row tableContain content">
-            <Grid key={this.state.guesses} guessCount={this.state.guesses}/>
+          <div className="row content">
+            <Grid/>
           </div>
         </div>
       </React.Fragment>

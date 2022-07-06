@@ -4,8 +4,7 @@ import Header from './components/layout/Header'
 import Dashboard from './components/layout/Dashboard'
 import Footer from './components/layout/Footer'
 
-export default class App extends Component {
-  render() {
+const App = () => {
     return (
       <div className="App">
         <Header/>
@@ -13,6 +12,6 @@ export default class App extends Component {
         <Footer/>
       </div>
     )
-  }
 }
 
+export default App;
