@@ -1,21 +1,8 @@
-@import './global.scss';
-html, body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: $bg-color !important;
-  }
+@import './assets/global.scss';
 
 .App {
   height:100%;
   width:100%;
   padding-top: 5rem;
-  background-color: $bg-color !important;
+  background-color:$bg-color;
 }
-
-* {
-    text-decoration: none !important;
-}/* universal cause no one needs that shit */

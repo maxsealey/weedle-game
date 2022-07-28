@@ -24,6 +24,7 @@ function generateChoice(dexLength, choiceQueue, queueLen = 15) {
     return choice
 }
 
+export default generateChoice;
 // generateChoice test
 // const testArray = [29, 49, 341, 740, 200, 67, 794, 800, 95, 53, 96, 109, 700, 504, 12]
 // console.log(generateChoice(905,testArray))

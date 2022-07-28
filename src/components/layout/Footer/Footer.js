@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../style/layout/footer.scss'
+import './footer.scss'
 
 /*
 

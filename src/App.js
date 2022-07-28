@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.scss'
-import Header from './components/layout/Header'
-import Dashboard from './components/layout/Dashboard'
-import Footer from './components/layout/Footer'
+import Header from './components/layout/Header/Header'
+import Dashboard from './components/layout/Dashboard/Dashboard'
+import Footer from './components/layout/Footer/Footer'
 
 const App = () => {
     return (
