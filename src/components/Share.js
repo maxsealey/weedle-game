@@ -1,1 +1,0 @@
-import '../style/share.scss'

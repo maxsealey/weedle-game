@@ -5,13 +5,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 export default class Dropdown extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      names:[]
-    }
-  }
-
-  componentDidMount() {
-    const names = this.props.names;
   }
 
   render() {
