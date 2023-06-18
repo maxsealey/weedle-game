@@ -13,6 +13,25 @@ export default class Grid extends Component {
     }
   }
   render() {
+    const testPokemanGuesses  = [
+      {
+        label:"Bulbasaur",
+        dexNum:1,
+        gen:1,
+        type:["grass","poison"],
+        evoStage:1,
+        eggGroup:["monster","grass"]
+      },
+      {
+        label:"Charmander",
+        dexNum:4,
+        gen:1,
+        type:["fire"],
+        evoStage:1,
+        eggGroup:["monster","dragon"]
+      }
+    ]
+
     return (
       <div className='table-contain'>
         <table className="table">
