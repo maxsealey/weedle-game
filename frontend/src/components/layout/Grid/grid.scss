@@ -1,7 +1,19 @@
 .table-contain {
-    border:1px solid red;
-    width:100%;
+    overflow-x: auto;
+    .table {
+        width:100%;
+        margin-top: 10px;
+        @media(min-width: 768px) {
+            width:700px;
+            margin:0 auto;
+            margin-top: 10px;
+        }
+
+        tr, th, td {
+            border: 1px solid #000; // Default border color
+        }
+    }
 }
 .headeritems {
-    font-size: 10px;
+    font-size: 14px;
 }
