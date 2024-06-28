@@ -1,25 +1,21 @@
 # WEEDLE
-### Wordle but Pokemon, made with a React/Redux.js frontend and a Java Spring Boot backend. MongoDB noSQL db for statistical analysis
+### Wordle but Pokemon, made with a React/Redux.js
 
-#### When completed, this game will be available at weedle-game.com.
+UI as of 6/10/24:
 
-Back from project hiatus as of June 2023.
-
-UI as of 6/18/23:
 [![Screen-Shot-2022-07-06-at-3-36-20-PM.png](https://i.postimg.cc/TP9c514f/Screen-Shot-2022-07-06-at-3-36-20-PM.png)](https://postimg.cc/8F7vqpG0)
 
 The plan for this project is to make a publicly accessible SPA where a daily Pokemon is selected randomly, and the user has a given number of tries to determine which is the correct one. Think Wordle, although another lesser known offshoot called Weddle (NFL players), is a more apt comparison.
 
-The game starts with the user selecting one of the 900+ available Pokemon. The game will then indicate whether the selcted Pokemon has any traits in common with the correct answer, and in some cases will hint at whether they are "hot or cold".
+The game starts with the user selecting one of the 1000+ available Pokemon. The game will then indicate whether the selcted Pokemon has any traits in common with the correct answer, and in some cases will hint at whether they are "hot or cold".
 
 ### WEEDLE-GAME.COM
 
-- Pokedex # (hint: higher or lower, +/- 25)
+- Pokedex # (hint: higher or lower, +/- 20)
 - Generation (hint: +/- 1 or 2)
 - Primary Type
 - Secondary Type
 - Evolutionary stage
-- Egg Group
 
 #### Instructions:
 

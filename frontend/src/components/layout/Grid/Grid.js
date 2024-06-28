@@ -6,7 +6,7 @@ export default class Grid extends Component {
     super(props)
     this.state = {
       guesses: this.props.guesses,
-      categories : ['Pokedex #','Name','Generation','Type 1','Type 2','Evo Stage'],
+      categories : ['Name', 'Pokedex #','Generation','Type 1','Type 2','Evo. Stage'],
       choice : {
         // will contain object created by Pokemon class
       }
@@ -41,6 +41,9 @@ export default class Grid extends Component {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              
+            </tr>
           </tbody>
         </table>
       </div>

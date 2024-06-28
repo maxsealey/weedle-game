@@ -14,24 +14,21 @@ export default class Dropdown extends Component {
         dexNum:1,
         gen:1,
         type:["grass","poison"],
-        evoStage:1,
-        eggGroup:["monster","grass"]
+        evoStage:1
       },
       {
         label:"Charmander",
         dexNum:4,
         gen:1,
         type:["fire"],
-        evoStage:1,
-        eggGroup:["monster","dragon"]
+        evoStage:1
       },
       {
         label:"Squirtle",
         dexNum:7,
         gen:1,
         type:["water"],
-        evoStage:1,
-        eggGroup:["monster","water 1"]
+        evoStage:1
       }
     ]
    
