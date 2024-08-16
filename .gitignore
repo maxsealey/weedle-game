@@ -5,6 +5,8 @@ node_modules
 /.pnp
 .pnp.js
 
+weedle-game
+
 # testing
 /coverage
 
