@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPokemon } from '../store';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
 const Dropdown = () => {
-  const [pokemonNameList, setPokemonNameList] = useState([]);
+  const dispatch = useDispatch();
+  const pokemonData = useSelector((state) => state.pokemon.data);
+  const pokemonStatus = useSelector((state) => state.pokemon.status);
 
-  useEffect(()=>{
-    const fetchNames = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/pokemon-species")
-        setPokemonNameList(res.data)
-      } catch(e){
-        console.error("Failed to get list of names", e)
+  const nameList = pokemonData.map((mon) => (mon.name))
+  //const nameList = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard'];
+
+  useEffect(() => {
+      // Fetch data for the first 10 Pokémon
+      for (let id = 1; id <= 10; id++) {
+          dispatch(fetchPokemon(id));
       }
-    }
-
-    fetchNames()
-  }, [])
+      console.log(pokemonData);
+  }, [dispatch]);
 
   return (
     <>
     <Autocomplete
       disablePortal
       id="pokemon-list"
-      options={pokemonNameList}
+      options={nameList}
       sx={{ width: '40%', minWidth: 300, maxWidth: 400 }}
       renderInput={(params) => <TextField {...params} label="Choose a Pokemon"/>}
 />

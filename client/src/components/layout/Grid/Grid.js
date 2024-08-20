@@ -6,7 +6,7 @@ export default class Grid extends Component {
     super(props)
     this.state = {
       guesses: this.props.guesses,
-      categories : ['Name', 'Pokedex #','Gen','Type 1','Type 2', 'Weight(lbs)', 'Evo. Stage'],
+      categories : ['Name', 'Dex #','Gen.','Type 1','Type 2', 'Height (m)'],
       choice : {
         // will contain object created by Pokemon class
       }

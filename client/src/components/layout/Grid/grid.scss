@@ -12,6 +12,9 @@
         tr, th, td {
             border: 1px solid #000; // Default border color
         }
+        th {
+            padding:5px 0 5px 0;
+        }
     }
 }
 .headeritems {
