@@ -1,8 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 
-
 const app = express();
+
+import { getGeneration } from '../client/src/helpers/Util';
 
 const getPokemonData = async (id) => {
   try {
@@ -20,19 +21,6 @@ const getPokemonData = async (id) => {
       console.error(`Error fetching data for Pokemon ID: ${id}`, error);
       return null;
   }
-};
-
-const getGeneration = (dexNum) => {
-  if (dexNum <= 151) return 1;
-  if (dexNum <= 251) return 2;
-  if (dexNum <= 386) return 3;
-  if (dexNum <= 493) return 4;
-  if (dexNum <= 649) return 5;
-  if (dexNum <= 721) return 6;
-  if (dexNum <= 809) return 7;
-  if (dexNum <= 905) return 8;
-  if (dexNum <= 1025) return 9;
-  return 8;
 };
 
 app.get('/api/pokemon/:id', async (req, res) => {
