@@ -1,15 +1,21 @@
+@import '../../../assets/global';
+
 .table-contain {
-    overflow-x: auto;
+    width:100%;
+    border:1px solid red;
     .table {
-        width:100%;
-        margin-top: 10px;
-        @media(min-width: 768px) {
-            width:700px;
+        @media(min-width: 800px) {
+            width:780px;
             margin:0 auto;
             margin-top: 10px;
         }
 
-        tr, th, td {
+        width:100%;
+        margin-top: 10px;
+        border-spacing: 0px;
+        border-collapse: separate;
+
+        th, td {
             border: 1px solid #000; // Default border color
         }
         th {
@@ -18,5 +24,5 @@
     }
 }
 .headeritems {
-    font-size: 14px;
+    font-size: 12px;
 }
