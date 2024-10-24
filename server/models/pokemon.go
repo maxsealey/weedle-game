@@ -1,12 +1,22 @@
 package models
 
 type Pokemon struct {
-	Name     string  `json:"name"`
-	DexNum   int     `json:"id"`
-	Gen      int     `json:"generation"`
-	Types    []Type  `json:"types"`
-	Height   float32 `json:"height"`
-	EvoStage int     `json:""`
+	DexNum    int
+	Name      string
+	Types     []Types
+	EggGroups []EggGroup
+	Color     string
+}
+
+// pokemon
+type PokemonBasicInfo struct {
+	DexNum int `json:"id"`
+
+	Species struct {
+		Name string `json:"name"`
+	} `json:"species"`
+
+	TypeList []Types `json:"types"`
 }
 
 type Types struct {
@@ -16,4 +26,21 @@ type Types struct {
 
 type TypeInfo struct {
 	Name string `json:"name"`
+}
+
+// pokemon
+type PokemonSpeciesInfo struct {
+	EggGroups []EggGroup `json:"egg_groups"`
+
+	Color struct {
+		Name string `json:"name"`
+	} `json:"color"`
+}
+
+type EggGroup struct {
+	Name string `json:"name"`
+}
+
+type NationalDexTotal struct {
+	Count int `json:"count"`
 }
