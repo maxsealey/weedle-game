@@ -9,31 +9,31 @@ import (
 	"sync"
 )
 
+// Fetches the current number of entries in the national dex, returns it
 func FetchNatDexMax() int {
 	url := "https://pokeapi.co/api/v2/pokemon-species"
 
 	var dexMax models.NationalDexTotal
 
+	// GET
 	res, err := http.Get(url)
-
 	if res != nil {
 		defer res.Body.Close()
 	}
-
 	if err != nil {
 		fmt.Println("Error making request:", err)
 		return 0
 	}
 
+	// Read
 	body, err := io.ReadAll(res.Body)
-
 	if err != nil {
 		fmt.Println("Error reading body:", err)
 		return 0
 	}
 
+	// Unmarshal
 	err = json.Unmarshal(body, &dexMax)
-
 	if err != nil {
 		fmt.Println("Error unmarshaling JSON:", err)
 		return 0
@@ -42,57 +42,56 @@ func FetchNatDexMax() int {
 	return dexMax.Count
 }
 
+// Fetches Pokemon dex number (even though redundant), name, types
 func FetchBasicInfo(dex int, ch chan<- models.PokemonBasicInfo, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println("Fetching Basic Info")
 	url := "https://pokeapi.co/api/v2/pokemon/"
 	var pokemon models.PokemonBasicInfo
 
-	defer wg.Done()
+	// GET
 	res, err := http.Get(fmt.Sprintf("%s%d", url, dex))
 
 	if res != nil {
 		defer res.Body.Close()
 	}
-
 	if err != nil {
 		fmt.Println("Error making request:", err)
-		close(ch)
 		return
 	}
 
+	// Read
 	body, err := io.ReadAll(res.Body)
-
 	if err != nil {
 		fmt.Println("Error reading body:", err)
-		close(ch)
 		return
 	}
 
+	// Unmarshal
 	err = json.Unmarshal(body, &pokemon)
 	if err != nil {
 		fmt.Println("Error unmarshaling JSON:", err)
-		close(ch) // Close channel on error
 		return
 	}
 
-	// Send the fetched data back to the main goroutine
 	ch <- pokemon
 
 }
 
+// Fetches Egg Groups and color
 func FetchSpeciesInfo(dex int, ch chan<- models.PokemonSpeciesInfo, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println("Fetching Species Info")
 	url := "https://pokeapi.co/api/v2/pokemon-species/"
 	var pokemon models.PokemonSpeciesInfo
 
-	defer wg.Done()
 	res, err := http.Get(fmt.Sprintf("%s%d", url, dex))
 
 	if res != nil {
 		defer res.Body.Close()
 	}
-
 	if err != nil {
 		fmt.Println("Error making request:", err)
-		close(ch)
 		return
 	}
 
@@ -100,7 +99,6 @@ func FetchSpeciesInfo(dex int, ch chan<- models.PokemonSpeciesInfo, wg *sync.Wai
 
 	if err != nil {
 		fmt.Println("Error reading body:", err)
-		close(ch)
 		return
 	}
 
@@ -108,22 +106,43 @@ func FetchSpeciesInfo(dex int, ch chan<- models.PokemonSpeciesInfo, wg *sync.Wai
 
 	if err != nil {
 		fmt.Println("Error unmarshaling JSON:", err)
-		close(ch) // Close channel on error
 		return
 	}
 
-	// Send the fetched data back to the main goroutine
 	ch <- pokemon
 }
 
-func CompilePokemonInfo(basic models.PokemonBasicInfo, addition models.PokemonSpeciesInfo) models.Pokemon {
-	var compiled models.Pokemon
+// "Gets full list of names"
+func FetchNameList() []string {
+	url := "https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0"
 
-	compiled.DexNum = basic.DexNum
-	compiled.Name = basic.Species.Name
-	compiled.Types = basic.TypeList
-	compiled.EggGroups = addition.EggGroups
-	compiled.Color = addition.Color.Name
+	var results models.Results
 
-	return compiled
+	// GET
+	res, err := http.Get(url)
+	if res != nil {
+		defer res.Body.Close()
+	}
+	if err != nil {
+		fmt.Println("Error making request:", err)
+		return nil
+	}
+
+	// Read
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		fmt.Println("Error reading body:", err)
+		return nil
+	}
+
+	// Unmarshal
+	err = json.Unmarshal(body, &results)
+	if err != nil {
+		fmt.Println("Error unmarshaling JSON:", err)
+		return nil
+	}
+
+	speciesList := ExtractNames(results)
+	return speciesList
+
 }
