@@ -6,11 +6,11 @@
 
 
 
-<h4>User Interface as of August 2024:</h4>
+<h4>User Interface as of October 2024:</h4>
 
 <div align="center">
 
-<img src="https://i.postimg.cc/y6r3pjLd/weedle-thumbail.png" width="500px">
+<img src="https://i.postimg.cc/GhFfywWN/Screenshot-2024-10-26-at-4-58-03-PM.png" width="500px">
 
 </div>
 
@@ -22,15 +22,14 @@ The plan for this project is to make a publicly accessible SPA where a daily Pok
 
 The game starts with the user selecting one of the 1000+ available Pokemon. The game will then indicate whether the selcted Pokemon has any traits in common with the correct answer, and in some cases will hint at whether they are "hot or cold".
 
-#### Categories (need to update UI):
+#### Categories:
 
 - Name (green when match is found)
-- Pokedex # (green when +/- 3, yellow when +/- 30, gray when not a match)
-- Generation (green if match, yellow when +/- 1, gray when not a match)
-- Primary Type (green if it's the target Pokemon's primary type too, yellow if it's the target's secondary type, gray if neither)
-- Secondary Type (green if it's the secondary type of each, yellow if it's the target's primary type, gray if neither)
-- Height (green if within 2" or 5cm, yellow if +/- 1' or 0.3m)
-- Evo. Stage (Green if same, gray if not)
+- Pokedex # (green when +/- 3, yellow when +/- 30)
+- Generation (green if match, yellow when +/- 1)
+- Types (green if they share both types (including "none" as a second egg group), yellow if they share one)
+- Egg Groups (green if they share both egg groups (including "none" as a second egg group), yellow if they share one)
+- Color (green if they are the same color)
 
 
 <br/>

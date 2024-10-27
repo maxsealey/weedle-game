@@ -1,20 +1,25 @@
 package main
 
 import (
-	"fmt"
-	"server/services"
+	"server/handlers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	//var pokemon models.Pokemon
+	router := gin.Default()
 
-	pokemon := services.ExecuteConcurrentAPICalls()
+	router.GET("/api/pokemon/names", handlers.GetPokemonNames)
 
-	fmt.Printf("Name: %s\n", pokemon.Name)
-	fmt.Printf("Dex Number: %d\n", pokemon.DexNum)
-	fmt.Printf("Generation: %d\n", pokemon.Generation)
-	fmt.Printf("Types: %s, %s\n", pokemon.Types[0].Type.Name, pokemon.Types[1].Type.Name)
-	fmt.Printf("Egg Groups: %s, %s\n", pokemon.EggGroups[0].Name, pokemon.EggGroups[1].Name)
-	fmt.Printf("Color: %s\n", pokemon.Color)
+	/*router.GET("/api/pokemon/:target", func(c *gin.Context) {
 
+	})
+
+	router.GET("/api/pokemon/:fetch", func(c *gin.Context) {
+
+	})
+	*/
+	// start server
+	router.Run("localhost:8080")
 }

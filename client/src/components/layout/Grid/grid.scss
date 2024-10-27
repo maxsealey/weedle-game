@@ -2,12 +2,16 @@
 
 .table-contain {
     width:100%;
-    border:1px solid red;
+    //border:1px solid red;
     .table {
         @media(min-width: 800px) {
             width:780px;
             margin:0 auto;
             margin-top: 10px;
+            margin-bottom: 10px;
+            .headeritems {
+                font-size: 14px;
+            }
         }
 
         width:100%;
@@ -24,5 +28,5 @@
     }
 }
 .headeritems {
-    font-size: 12px;
+    font-size: 10px;
 }
