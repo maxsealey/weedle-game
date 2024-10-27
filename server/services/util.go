@@ -36,40 +36,53 @@ func getGeneration(dex int) int {
 }
 
 // Compiles information fetched from both pages and calls getGeneration()
-func CompilePokemonInfo(basic models.PokemonBasicInfo, addition models.PokemonSpeciesInfo) models.Pokemon {
+func CompilePokemonInfo(basic models.PokemonBasicInfo, species models.PokemonSpeciesInfo) models.Pokemon {
 	var compiled models.Pokemon
-	var temp models.Types
+	var temp1 models.Types
+	var temp2 models.EggGroup
 
-	temp.Slot = 2 // to avoid off by one error
-	temp.Type.Name = "None"
+	temp1.Type.Name = "N/A"
+	temp2.Name = "N/A"
 
 	compiled.Name = basic.Species.Name
 	compiled.DexNum = basic.DexNum
 	compiled.Generation = getGeneration(basic.DexNum)
-	compiled.EggGroups = addition.EggGroups
-	compiled.Color = addition.Color.Name
+	compiled.EggGroups = species.EggGroups
+	compiled.Color = species.Color.Name
 
+	// Avoids errors for pokemon with one type
 	compiled.Types = append(compiled.Types, basic.TypeList[0])
 	if len(compiled.Types) > 1 {
 		compiled.Types = append(compiled.Types, basic.TypeList[1])
 	} else {
-		compiled.Types = append(compiled.Types, temp)
+		compiled.Types = append(compiled.Types, temp1)
+	}
+
+	// Avoids errors for pokemon with one egg group
+	compiled.EggGroups = append(compiled.EggGroups, species.EggGroups[0])
+	if len(species.EggGroups) > 1 {
+		species.EggGroups = append(species.EggGroups, species.EggGroups[1])
+	} else {
+		species.EggGroups = append(species.EggGroups, temp2)
 	}
 
 	return compiled
 }
 
-// Returns list of all species names
-func ExtractNames(data models.Results) []string {
-	var names []string
-	for _, result := range data.Names {
-		names = append(names, result.Name)
+// Returns list of all species names and their id
+func ExtractElements(data models.Results) []models.PokemonListResponse {
+	list := make([]models.PokemonListResponse, len(data.Names))
+	for i, result := range data.Names {
+		list[i] = models.PokemonListResponse{
+			ID:   i + 1,
+			Name: result.Name,
+		}
 	}
-	return names
+	return list
 }
 
-func ExecuteConcurrentAPICalls() models.Pokemon {
-	dex := 742
+// runs goroutines to retrieve both halves of a pokemons total data
+func ExecuteConcurrentAPICalls(dex int) models.Pokemon {
 	basicInfoCh := make(chan models.PokemonBasicInfo, dex)
 	speciesInfoCh := make(chan models.PokemonSpeciesInfo, dex)
 
