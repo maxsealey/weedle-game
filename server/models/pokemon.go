@@ -5,7 +5,7 @@ type Pokemon struct {
 	Name       string
 	DexNum     int
 	Generation int
-	Types      []Types
+	Types      []Types // two elements in each
 	EggGroups  []EggGroup
 	Color      string
 }
@@ -23,7 +23,6 @@ type PokemonBasicInfo struct {
 }
 
 type Types struct {
-	Slot int      `json:"slot"`
 	Type TypeInfo `json:"type"`
 }
 
@@ -54,4 +53,9 @@ type Results struct {
 	Names []struct {
 		Name string `json:"name"`
 	} `json:"results"`
+}
+
+type PokemonListResponse struct {
+	ID   int    `json:"ID"`
+	Name string `json:"Name"`
 }
