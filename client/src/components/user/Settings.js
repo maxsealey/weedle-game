@@ -1,4 +1,4 @@
-import './settings.scss'
+import './userMenus.scss'
 import React from 'react';
 
 const Settings = () => {

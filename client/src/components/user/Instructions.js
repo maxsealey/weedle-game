@@ -1,4 +1,4 @@
-import './instructions.scss'
+import './userMenus.scss'
 import React from 'react';
 
 const Instructions = () => {

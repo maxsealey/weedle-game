@@ -1,4 +1,4 @@
-import './share.scss'
+import './userMenus.scss'
 import React from 'react'
 
 const Share = () => {

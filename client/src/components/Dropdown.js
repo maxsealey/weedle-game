@@ -1,31 +1,36 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchPokemon } from '../store/store';
+import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import axios from 'axios';
 
 const Dropdown = () => {
-  const dispatch = useDispatch();
-  const pokemonData = useSelector((state) => state.pokemon.data);
-  const pokemonStatus = useSelector((state) => state.pokemon.status);
-
-  const nameList = pokemonData.map((mon) => (mon.name))
-  //const nameList = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard'];
+  const [pokemonNames, setPokemonNames] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-      // Fetch data for the first 10 Pokémon
-      for (let id = 1; id <= 10; id++) {
-          dispatch(fetchPokemon(id));
+    async function fetchPokemonNames() {
+      try {
+        const response = await axios.get('http://localhost:8080/api/pokemon/names');
+        const namesArray = response.data.map(pokemon => pokemon.ID + ". " + pokemon.Name.charAt(0).toUpperCase() + pokemon.Name.slice(1));
+        setPokemonNames(namesArray);
+      } catch (error) {
+        console.error("Error fetching Pokémon names:", error);
+        setError("Failed to fetch Pokémon names.");
+      } finally {
+        setLoading(false);
       }
-      console.log(pokemonData);
-  }, [dispatch]);
+    }
+
+    fetchPokemonNames();
+  }, []);
 
   return (
     <>
     <Autocomplete
       disablePortal
       id="pokemon-list"
-      options={nameList}
+      options={pokemonNames}
       sx={{ width: '40%', minWidth: 300, maxWidth: 400 }}
       renderInput={(params) => <TextField {...params} label="Choose a Pokemon"/>}
 />
