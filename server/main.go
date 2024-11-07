@@ -12,14 +12,18 @@ func main() {
 
 	router.GET("/api/pokemon/names", handlers.GetPokemonNames)
 
-	/*router.GET("/api/pokemon/:target", func(c *gin.Context) {
+	router.GET("/target", func(c *gin.Context) {
 
 	})
 
-	router.GET("/api/pokemon/:fetch", func(c *gin.Context) {
+	router.POST("/target", func(c *gin.Context) {
 
 	})
-	*/
+
+	router.GET("/fetch", func(c *gin.Context) {
+
+	})
+
 	// start server
 	router.Run("localhost:8080")
 }
