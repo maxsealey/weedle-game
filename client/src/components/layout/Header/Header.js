@@ -14,9 +14,9 @@ export default class Header extends Component {
       <React.Fragment>
         <nav className='navbar navbar-expand-md fixed-top'>
           <div className='icon-contain'>
-            <FontAwesomeIcon icon={faCircleQuestion} class="faicon" />
-            <FontAwesomeIcon icon={faGear} class="faicon" />
-            <FontAwesomeIcon icon={faShare} class="faicon" />
+            <FontAwesomeIcon icon={faCircleQuestion} className="faicon" />
+            <FontAwesomeIcon icon={faGear} className="faicon" />
+            <FontAwesomeIcon icon={faShare} className="faicon" />
           </div>
         </nav>
       </React.Fragment>

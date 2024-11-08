@@ -8,7 +8,7 @@ const App = () => {
     return (
       <div className="App">
         <Header/>
-        <Dashboard guesses="0"/>
+        <Dashboard />
         <Footer/>
       </div>
     )
