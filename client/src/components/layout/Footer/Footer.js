@@ -11,7 +11,7 @@ export default class Footer extends Component {
     render() {
         return (
             <div className="footer">
-                <p className = "text-center">2024 Max Sealey <a href="https://www.github.com/maxsealey" class="linkButton">Github</a> | Not associated with The Pokemon Company</p>
+                <p className = "text-center">2024 Max Sealey <a href="https://www.github.com/maxsealey" className="linkButton">Github</a> | Not associated with The Pokemon Company</p>
             </div>
         )
     }
