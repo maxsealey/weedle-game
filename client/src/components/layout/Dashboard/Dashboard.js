@@ -7,9 +7,6 @@ import './dashboard.scss'
 const Dashboard = () => {
   const [guesses, setGuesses] = useState(0)
   const [selections, setSelections] = useState([]);
-  const [isSelected, setSelected] = useState(false);
-
-  const test = new Pokemon("Bulbasaur", 1, 1, ["Grass", "Poison"], ["Grass", "Monster"])
 
   useEffect(() => {
     document.body.style.overflow = "auto";  
@@ -20,7 +17,7 @@ const Dashboard = () => {
 
   const handleSelectionChange = (newSelection) => {
     setSelections((prevSelections) => [...prevSelections, newSelection]);
-    console.log(selections)
+    setGuesses((prevGuesses) => prevGuesses + 1);
   };
 
   return (
@@ -43,7 +40,8 @@ const Dashboard = () => {
       </div>
 
       <div className="row content">
-        <Grid choices={[test]} />
+        <Grid choices={selections} />
+        <button className="randomize">Randomize</button>
       </div>
     </div>
 )

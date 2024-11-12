@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './grid.scss'
 
-const Grid = (props) => {
-  const [choices, setChoices] = useState([])
-
+const Grid = ({ choices }) => {
   const categories = ['Name', 'Dex #','Gen.','Types', 'Egg Groups', 'Color']
 
   return (
@@ -17,9 +15,16 @@ const Grid = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            
-          </tr>
+          {choices.map((pokemon, index) => (
+              <tr key={index}>
+                <td className="text-center">{pokemon.name}</td>
+                <td className="text-center">{pokemon.dex}</td>
+                <td className="text-center">{pokemon.gen}</td>
+                <td className="text-center">{pokemon.types.join(', ')}</td>
+                <td className="text-center">{pokemon.eggGroups.join(', ')}</td>
+                <td className="text-center">{pokemon.color}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
