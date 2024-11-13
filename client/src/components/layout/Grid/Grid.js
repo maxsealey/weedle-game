@@ -17,12 +17,12 @@ const Grid = ({ choices }) => {
         <tbody>
           {choices.map((pokemon, index) => (
               <tr key={index}>
-                <td className="text-center">{pokemon.name}</td>
-                <td className="text-center">{pokemon.dex}</td>
-                <td className="text-center">{pokemon.gen}</td>
-                <td className="text-center">{pokemon.types.join(', ')}</td>
-                <td className="text-center">{pokemon.eggGroups.join(', ')}</td>
-                <td className="text-center">{pokemon.color}</td>
+                <td className="text-center name">{pokemon.name}</td>
+                <td className="text-center dexnum">{pokemon.dex}</td>
+                <td className="text-center gen">{pokemon.gen}</td>
+                <td className="text-center types">{`${pokemon.type1}, ${pokemon.type2}`}</td>
+                <td className="text-center eggs">{`${pokemon.eggGroup1}, ${pokemon.eggGroup2}`}</td>
+                <td className="text-center color">{pokemon.color}</td>
               </tr>
             ))}
         </tbody>

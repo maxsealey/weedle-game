@@ -9,11 +9,26 @@ const Dropdown = ({ onSelectionChange }) => {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [inputValue, setInputValue] = useState('');
 
-  const handleSelect = (event, newValue) => {
+  const getIdFromString = (formattedString) => {
+    const id = formattedString.split(")")[0]; // Split at ')' and take the first part
+    return parseInt(id, 10); // Convert the ID to a number
+};
+
+  const handleSelect = async (event, newValue) => {
     if (newValue) {
-      const test = new Pokemon("Bulbasaur", 1, 1, ["Grass", "Poison"], ["Grass", "Monster"], "Green")
-      onSelectionChange(test);
-      setSelectedPokemon(null);
+      const response = await axios.get(`http://localhost:8080/api/pokemon/${getIdFromString(newValue)}`);
+      const pokemon = new Pokemon(
+        response.data.name,
+        response.data.dexnum,
+        response.data.gen,
+        response.data.type1.type.name,
+        response.data.type2.type.name,
+        response.data.egg1.name,
+        response.data.egg2.name,
+        response.data.color
+      );
+      setSelectedPokemon(null); 
+      onSelectionChange(pokemon);
       setInputValue('');
     }
   };

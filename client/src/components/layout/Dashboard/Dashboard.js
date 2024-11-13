@@ -7,12 +7,17 @@ import './dashboard.scss'
 const Dashboard = () => {
   const [guesses, setGuesses] = useState(0)
   const [selections, setSelections] = useState([]);
+  const [target, setTarget] = useState(null);
 
   useEffect(() => {
     document.body.style.overflow = "auto";  
     return () => {
       document.body.style.overflow = "hidden";
     }
+  }, [])
+
+  useEffect(() => {
+
   }, [])
 
   const handleSelectionChange = (newSelection) => {
