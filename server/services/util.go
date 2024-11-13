@@ -2,6 +2,7 @@ package services
 
 import (
 	"server/models"
+	"strings"
 	"sync"
 )
 
@@ -44,32 +45,30 @@ func CompilePokemonInfo(basic models.PokemonBasicInfo, species models.PokemonSpe
 	noneType.Type.Name = "N/A"
 	noneEgg.Name = "N/A"
 
-	compiled.Name = basic.Species.Name
+	compiled.Name = strings.ToUpper(string(basic.Species.Name[0])) + strings.ToLower(basic.Species.Name[1:])
 	compiled.DexNum = basic.DexNum
 	compiled.Generation = getGeneration(basic.DexNum)
-	compiled.Color = species.Color.Name
-	compiled.TypeOne = basic.TypeList[0]
-
+	compiled.Color = strings.ToUpper(string(species.Color.Name[0])) + strings.ToLower(species.Color.Name[1:])
 	if len(basic.TypeList) > 0 {
-		compiled.TypeOne = basic.TypeList[0]
+		compiled.TypeOne = capitalizeType(basic.TypeList[0])
 	} else {
 		compiled.TypeOne = noneType
 	}
 
 	if len(basic.TypeList) > 1 {
-		compiled.TypeTwo = basic.TypeList[1]
+		compiled.TypeTwo = capitalizeType(basic.TypeList[1])
 	} else {
 		compiled.TypeTwo = noneType
 	}
 
 	if len(species.EggGroups) > 0 {
-		compiled.EggGroupOne = species.EggGroups[0]
+		compiled.EggGroupOne = capitalizeEggGroup(species.EggGroups[0])
 	} else {
 		compiled.EggGroupOne = noneEgg
 	}
 
 	if len(species.EggGroups) > 1 {
-		compiled.EggGroupTwo = species.EggGroups[1]
+		compiled.EggGroupTwo = capitalizeEggGroup(species.EggGroups[1])
 	} else {
 		compiled.EggGroupTwo = noneEgg
 	}
@@ -108,4 +107,16 @@ func ExecuteConcurrentAPICalls(dex int) models.Pokemon {
 	completePokemon := CompilePokemonInfo(basicInfo, speciesInfo)
 
 	return completePokemon
+}
+
+// Helper function to capitalize the type name
+func capitalizeType(t models.Types) models.Types {
+	t.Type.Name = strings.ToUpper(string(t.Type.Name[0])) + strings.ToLower(t.Type.Name[1:])
+	return t
+}
+
+// Helper function to capitalize the egg group name
+func capitalizeEggGroup(e models.EggGroup) models.EggGroup {
+	e.Name = strings.ToUpper(string(e.Name[0])) + strings.ToLower(e.Name[1:])
+	return e
 }
