@@ -38,32 +38,40 @@ func getGeneration(dex int) int {
 // Compiles information fetched from both pages and calls getGeneration()
 func CompilePokemonInfo(basic models.PokemonBasicInfo, species models.PokemonSpeciesInfo) models.Pokemon {
 	var compiled models.Pokemon
-	var temp1 models.Types
-	var temp2 models.EggGroup
+	var noneType models.Types
+	var noneEgg models.EggGroup
 
-	temp1.Type.Name = "N/A"
-	temp2.Name = "N/A"
+	noneType.Type.Name = "N/A"
+	noneEgg.Name = "N/A"
 
 	compiled.Name = basic.Species.Name
 	compiled.DexNum = basic.DexNum
 	compiled.Generation = getGeneration(basic.DexNum)
-	compiled.EggGroups = species.EggGroups
 	compiled.Color = species.Color.Name
+	compiled.TypeOne = basic.TypeList[0]
 
-	// Avoids errors for pokemon with one type
-	compiled.Types = append(compiled.Types, basic.TypeList[0])
-	if len(compiled.Types) > 1 {
-		compiled.Types = append(compiled.Types, basic.TypeList[1])
+	if len(basic.TypeList) > 0 {
+		compiled.TypeOne = basic.TypeList[0]
 	} else {
-		compiled.Types = append(compiled.Types, temp1)
+		compiled.TypeOne = noneType
 	}
 
-	// Avoids errors for pokemon with one egg group
-	compiled.EggGroups = append(compiled.EggGroups, species.EggGroups[0])
-	if len(species.EggGroups) > 1 {
-		species.EggGroups = append(species.EggGroups, species.EggGroups[1])
+	if len(basic.TypeList) > 1 {
+		compiled.TypeTwo = basic.TypeList[1]
 	} else {
-		species.EggGroups = append(species.EggGroups, temp2)
+		compiled.TypeTwo = noneType
+	}
+
+	if len(species.EggGroups) > 0 {
+		compiled.EggGroupOne = species.EggGroups[0]
+	} else {
+		compiled.EggGroupOne = noneEgg
+	}
+
+	if len(species.EggGroups) > 1 {
+		compiled.EggGroupTwo = species.EggGroups[1]
+	} else {
+		compiled.EggGroupTwo = noneEgg
 	}
 
 	return compiled

@@ -18,17 +18,7 @@ func main() {
 
 	router.GET("/api/pokemon/names", handlers.GetPokemonNames)
 
-	router.GET("/target", func(c *gin.Context) {
-
-	})
-
-	router.POST("/target", func(c *gin.Context) {
-
-	})
-
-	router.GET("/fetch", func(c *gin.Context) {
-
-	})
+	router.GET("/api/pokemon/:id", handlers.GetPokemonByID)
 
 	// start server
 	router.Run("localhost:8080")

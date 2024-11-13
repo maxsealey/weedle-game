@@ -2,12 +2,14 @@ package models
 
 // Contains totality of data needed
 type Pokemon struct {
-	Name       string
-	DexNum     int
-	Generation int
-	Types      []Types // two elements in each
-	EggGroups  []EggGroup
-	Color      string
+	Name        string   `json:"name"`
+	DexNum      int      `json:"dexnum"`
+	Generation  int      `json:"gen"`
+	TypeOne     Types    `json:"type1"`
+	TypeTwo     Types    `json:"type2"`
+	EggGroupOne EggGroup `json:"egg1"`
+	EggGroupTwo EggGroup `json:"egg2"`
+	Color       string   `json:"color"`
 }
 
 // Contains number, name, and types from

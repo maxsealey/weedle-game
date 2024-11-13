@@ -2,7 +2,10 @@ package handlers
 
 import (
 	"net/http"
+	"server/models"
 	"server/services"
+
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,4 +20,23 @@ func GetPokemonNames(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, pokemonList)
+}
+
+func GetPokemonByID(c *gin.Context) {
+	id := c.Param("id")
+
+	idInt, err := strconv.Atoi(id)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid Pokémon ID"})
+		return
+	}
+
+	pokemonData := services.ExecuteConcurrentAPICalls(idInt)
+
+	if pokemonData == (models.Pokemon{}) {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Pokémon not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, pokemonData)
 }
