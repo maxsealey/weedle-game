@@ -20,6 +20,8 @@ func main() {
 
 	router.GET("/api/pokemon/:id", handlers.GetPokemonByID)
 
+	router.GET("/api/pokemon/total", handlers.GetNatDexMax)
+
 	// start server
 	router.Run("localhost:8080")
 }

@@ -40,3 +40,8 @@ func GetPokemonByID(c *gin.Context) {
 
 	c.JSON(http.StatusOK, pokemonData)
 }
+
+func GetNatDexMax(c *gin.Context) {
+	max := services.FetchNatDexMax()
+	c.JSON(http.StatusOK, max)
+}
