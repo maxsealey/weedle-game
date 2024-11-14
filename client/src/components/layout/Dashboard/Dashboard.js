@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Dropdown from '../../Dropdown'
 import Grid from '../Grid/Grid'
 import Pokemon from '../../../models/Pokemon'
+import { generateRandomPokemon, fetchDexMax } from '../../../helpers/utility'
 import './dashboard.scss'
 
 const Dashboard = () => {
@@ -17,13 +18,31 @@ const Dashboard = () => {
   }, [])
 
   useEffect(() => {
-
+    const fetchTarget = async () => {
+      const newTarget = await generateRandomPokemon();
+      setTarget(newTarget);
+      console.log("New: " + JSON.stringify(newTarget));
+    }
+    
+    fetchTarget();
   }, [])
+
+  useEffect(() => {
+    if (target) {
+      console.log('Target updated:', target);
+    }
+  }, [target]);
 
   const handleSelectionChange = (newSelection) => {
     setSelections((prevSelections) => [...prevSelections, newSelection]);
     setGuesses((prevGuesses) => prevGuesses + 1);
   };
+
+  async function handleRandomize() {
+    const newTarget = await generateRandomPokemon();
+    setTarget(newTarget);
+    console.log("Random: " + JSON.stringify(newTarget));
+  }
 
   return (
     <div className="col">
@@ -46,11 +65,10 @@ const Dashboard = () => {
 
       <div className="row content">
         <Grid choices={selections} />
-        <button className="randomize">Randomize</button>
+        <button className="randomize" onClick={handleRandomize}>Randomize</button>
       </div>
     </div>
 )
 }
 
 export default Dashboard;
-

@@ -3,16 +3,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import axios from 'axios';
 import Pokemon from '../models/Pokemon';
+import {getIdFromString, generateRandomPokemon} from '../helpers/utility'
 
 const Dropdown = ({ onSelectionChange }) => {
   const [pokemonNames, setPokemonNames] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [inputValue, setInputValue] = useState('');
-
-  const getIdFromString = (formattedString) => {
-    const id = formattedString.split(")")[0]; // Split at ')' and take the first part
-    return parseInt(id, 10); // Convert the ID to a number
-};
 
   const handleSelect = async (event, newValue) => {
     if (newValue) {
