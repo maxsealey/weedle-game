@@ -1,3 +1,0 @@
-/*********
- * STILL NEED TO REFACTOR AND MOVE HANDLERS HERE
- * ******** */
