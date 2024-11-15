@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './grid.scss'
 
 const Grid = ({ choices, cells }) => {
-  const categories = ['Name', 'Dex #','Gen.','Types', 'Egg Groups', 'Color']
+  const categories = ['Name', 'Dex #','Gen.','Types', 'Color']
 
   return (
     <div className='table-contain'>
@@ -31,9 +31,6 @@ const Grid = ({ choices, cells }) => {
                 </td>
                 <td className="text-center" style={{ backgroundColor: comparison.typesColor }}>
                   {`${pokemon.type1}, ${pokemon.type2}`}
-                </td>
-                <td className="text-center" style={{ backgroundColor: comparison.eggsColor }}>
-                  {`${pokemon.eggGroup1}, ${pokemon.eggGroup2}`}
                 </td>
                 <td className="text-center" style={{ backgroundColor: comparison.colorColor }}>
                   {pokemon.color}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Dropdown from '../../Dropdown'
 import Grid from '../Grid/Grid'
 import Pokemon from '../../../models/Pokemon'
-import { generateRandomPokemon, fetchDexMax } from '../../../helpers/utility'
+import { generateRandomPokemon} from '../../../helpers/utility'
 import comparePokemon from '../../../helpers/comparePokemon'
 import './dashboard.scss'
 

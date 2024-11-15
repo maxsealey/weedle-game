@@ -114,7 +114,7 @@ func FetchSpeciesInfo(dex int, ch chan<- models.PokemonSpeciesInfo, wg *sync.Wai
 
 // Gets full list of names and ids to be converted into json
 func FetchNameList() []models.PokemonListResponse {
-	url := "https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0"
+	url := "https://pokeapi.co/api/v2/pokemon-species?limit=649&offset=0"
 
 	var results models.Results
 

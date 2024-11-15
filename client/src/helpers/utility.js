@@ -10,7 +10,16 @@ export function getIdFromString(formattedString){
 
 // Generates random pokemon and returns
 export async function generateRandomPokemon() {
-    const dexMax = await fetchDexMax()
+    // const dexMax = await fetchDexMax()
+    const dexMax = 649
+    /**
+     * 
+     * 
+     * DEXMAX IS BEING MODIFIED HERE TO MAKE IT GENS 1-5 ONLY
+     * 
+     * 
+     */
+
     const id = Math.floor(Math.random() * dexMax) + 1;
     console.log(`Fetching Pokémon with ID: ${id}`);
   
