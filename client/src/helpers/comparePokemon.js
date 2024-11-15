@@ -5,10 +5,10 @@ export default function comparePokemon(target, selection) {
     const targetTypes = [target.type1, target.type2]
     const targetEgg = [target.eggGroup1, target.eggGroup2]
 
-    const GREEN = "GREEN", YELLOW = "YELLOW", GREY = "GREY", UP = "UP", DOWN = "DOWN"
+    const GREEN = "LIGHTGREEN", YELLOW = "YELLOW", GREY = "LIGHTGREY", UP = "↑", DOWN = "↓"
 
     let nameColor = GREY, dexColor = GREY, genColor = GREY, typesColor = GREY, eggsColor = GREY, colorColor = GREY
-    let dexDirection = null
+    let dexDirection = ""
 
     // return if guess is correct, else set direction
     if (target.dex === selection.dex) {
