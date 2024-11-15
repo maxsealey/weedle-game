@@ -6,8 +6,8 @@ import { generateRandomPokemon, fetchDexMax } from '../../../helpers/utility'
 import './dashboard.scss'
 
 const Dashboard = () => {
-  const [guesses, setGuesses] = useState(0)
-  const [selections, setSelections] = useState([]);
+  const [guesses, setGuesses] = useState(0);
+  const [selections, setSelections] = useState([]); // array of pokemon objects passed in to the grid
   const [target, setTarget] = useState(null);
 
   useEffect(() => {
@@ -15,34 +15,35 @@ const Dashboard = () => {
     return () => {
       document.body.style.overflow = "hidden";
     }
-  }, [])
+  }, []); // hides phantom scroll bar
 
   useEffect(() => {
     const fetchTarget = async () => {
       const newTarget = await generateRandomPokemon();
       setTarget(newTarget);
-      console.log("New: " + JSON.stringify(newTarget));
     }
-    
+
     fetchTarget();
-  }, [])
+  }, []); // generate and store randomly generated pokemon on page open
 
   useEffect(() => {
     if (target) {
       console.log('Target updated:', target);
     }
-  }, [target]);
+  }, [target]); // log new target; for debugging
 
+  // Handler for updating selection array and # of guesses when dropdown
   const handleSelectionChange = (newSelection) => {
     setSelections((prevSelections) => [...prevSelections, newSelection]);
     setGuesses((prevGuesses) => prevGuesses + 1);
-  };
+  }; 
 
+  // Handler for randomize button
   async function handleRandomize() {
     const newTarget = await generateRandomPokemon();
     setTarget(newTarget);
     console.log("Random: " + JSON.stringify(newTarget));
-  }
+  };
 
   return (
     <div className="col">
@@ -68,7 +69,7 @@ const Dashboard = () => {
         <button className="randomize" onClick={handleRandomize}>Randomize</button>
       </div>
     </div>
-)
-}
+);
+};
 
 export default Dashboard;

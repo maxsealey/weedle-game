@@ -2,11 +2,13 @@
 import Pokemon from "../models/Pokemon";
 import axios from 'axios';
 
+// Takes string formatted for dropdown options "1) Pokemon", get the int and return
 export function getIdFromString(formattedString){
     const id = formattedString.split(")")[0];
     return parseInt(id, 10);
 };
 
+// Generates random pokemon and returns
 export async function generateRandomPokemon() {
     const dexMax = await fetchDexMax()
     const id = Math.floor(Math.random() * dexMax) + 1;
@@ -36,8 +38,8 @@ export async function generateRandomPokemon() {
       return null; 
     }
   }
-  
 
+// Gets total number of pokemon from backend and returns
 export async function fetchDexMax() {
     const response = await axios.get('http://localhost:8080/api/pokemon/total');
     return response.data

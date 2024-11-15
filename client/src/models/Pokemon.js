@@ -1,3 +1,4 @@
+// Pokemon model class
 export default class Pokemon {
     constructor(name, dex, gen, type1, type2, eggGroup1, eggGroup2, color){
         this.name = name
