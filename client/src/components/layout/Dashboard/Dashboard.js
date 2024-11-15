@@ -3,11 +3,13 @@ import Dropdown from '../../Dropdown'
 import Grid from '../Grid/Grid'
 import Pokemon from '../../../models/Pokemon'
 import { generateRandomPokemon, fetchDexMax } from '../../../helpers/utility'
+import comparePokemon from '../../../helpers/comparePokemon'
 import './dashboard.scss'
 
 const Dashboard = () => {
   const [guesses, setGuesses] = useState(0);
   const [selections, setSelections] = useState([]); // array of pokemon objects passed in to the grid
+  const [cellColors, setCellColors] = useState([]); // array of ComparisonResult objects
   const [target, setTarget] = useState(null);
 
   useEffect(() => {
@@ -34,15 +36,19 @@ const Dashboard = () => {
 
   // Handler for updating selection array and # of guesses when dropdown
   const handleSelectionChange = (newSelection) => {
+    const comparison = comparePokemon(target, newSelection)
     setSelections((prevSelections) => [...prevSelections, newSelection]);
     setGuesses((prevGuesses) => prevGuesses + 1);
+    setCellColors((prevComparisons)=> [...prevComparisons, comparison])
   }; 
 
   // Handler for randomize button
   async function handleRandomize() {
     const newTarget = await generateRandomPokemon();
     setTarget(newTarget);
-    console.log("Random: " + JSON.stringify(newTarget));
+    setSelections([]);
+    setCellColors([]);
+    setGuesses(0)
   };
 
   return (
@@ -65,7 +71,7 @@ const Dashboard = () => {
       </div>
 
       <div className="row content">
-        <Grid choices={selections} />
+        <Grid choices={selections} cells={cellColors} />
         <button className="randomize" onClick={handleRandomize}>Randomize</button>
       </div>
     </div>

@@ -1,6 +1,6 @@
 // Model to hold colors for each cell of data
 export default class ComparisonResults {
-    constructor(targetName, selectionName, nameColor, dexColor, genColor, typesColor, eggsColor, colorColor, dexDirection=null){
+    constructor(targetName, selectionName, nameColor, dexColor, genColor, typesColor, eggsColor, colorColor, dexDirection=""){
         this.targetName = targetName
         this.selectionName = selectionName
         this.nameColor = nameColor
