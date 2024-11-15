@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import axios from 'axios';
 import Pokemon from '../models/Pokemon';
-import {getIdFromString, generateRandomPokemon} from '../helpers/utility'
+import {getIdFromString} from '../helpers/utility'
 
 const Dropdown = ({ onSelectionChange }) => {
   const [pokemonNames, setPokemonNames] = useState([]);
@@ -11,20 +11,26 @@ const Dropdown = ({ onSelectionChange }) => {
 
   // Handler for dropdown selection, make new pokemon object and send back to dashboard
   const handleSelect = async (event, newValue) => {
-    if (newValue) {
-      const response = await axios.get(`http://localhost:8080/api/pokemon/${getIdFromString(newValue)}`);
-      const pokemon = new Pokemon(
-        response.data.name,
-        response.data.dexnum,
-        response.data.gen,
-        response.data.type1.type.name,
-        response.data.type2.type.name,
-        response.data.egg1.name,
-        response.data.egg2.name,
-        response.data.color
-      );
-      onSelectionChange(pokemon);
-      setInputValue('');
+    try {
+      if (newValue) {
+        const response = await axios.get(`http://localhost:8080/api/pokemon/${getIdFromString(newValue)}`);
+        const pokemon = new Pokemon(
+          response.data.name,
+          response.data.dexnum,
+          response.data.gen,
+          response.data.type1.type.name,
+          response.data.type2.type.name,
+          response.data.egg1.name,
+          response.data.egg2.name,
+          response.data.color
+        );
+        onSelectionChange(pokemon);
+        setInputValue('');
+      } else {
+        console.error('API did not return data');
+      }
+    } catch (error) {
+      console.error('Error fetching Pokémon:', error);
     }
   };
 
